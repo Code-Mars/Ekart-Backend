@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ItemsMS
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/ekart_items
+server:
+  port: 9100
+
+
+Service:
+  ITEM_NOT_FOUND: Item not found. Give valid Item details

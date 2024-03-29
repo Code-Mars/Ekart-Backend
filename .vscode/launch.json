@@ -9,6 +9,16 @@
             "projectName": "UserMS",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ItemsMsApplication<ItemsMS>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ekart.items.ItemsMsApplication",
+            "projectName": "ItemsMS",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
