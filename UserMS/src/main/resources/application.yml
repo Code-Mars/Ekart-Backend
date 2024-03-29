@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: UserMS
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/ekart_users
+server:
+  port: 9000
+
+General:
+  EXCEPTION_MESSAGE: Some error occurred, Please try again later.
+Service:
+  INVALID_CREDENTIALS: Invalid Credentials.
+  USER_FOUND: user already present.
+  USER_NOT_FOUND: User not found. Give valid user details.
+  INVALID_MOBILE_OR_EMAIL: Invalid username or email;
+UserAPI:
+  PASSWORD_RESET_SUCCESSFUL: Password reset successful.
