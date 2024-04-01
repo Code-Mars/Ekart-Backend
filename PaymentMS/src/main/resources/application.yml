@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: PaymentMS
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/ekart_payment
+server:
+  port: 9300
+
+
+

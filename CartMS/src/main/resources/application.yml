@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: CartMS
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/ekart_cart
+server:
+  port: 9200
+
+
+
+Service:
+  ITEM_NOT_FOUND: Item not found successfully.
+  ITEM_CANT_DELETE: Item cannot be deleted.
+  ITEM_CANT_CANCEL: Item cannot be canceled.
+CartAPI:
+  ITEM_ADDED: Item added successfully.
+  ITEM_UPDATED: Item updated successfully.
+  ITEM_DELETED: Item deleted successfully.
+  ITEM_CANCELED: Item canceled successfully.
+  ITEM_ORDERED: Item ordered successfully.

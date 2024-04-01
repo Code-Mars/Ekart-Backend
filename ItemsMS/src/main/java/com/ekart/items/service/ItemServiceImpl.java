@@ -56,4 +56,20 @@ public class ItemServiceImpl implements ItemService{
     public List<ItemDTO>searchItems(String term){
         return itemRepository.findByAllIgnoreCaseTitleContainingOrDescContainingOrCategoryContaining(term, term, term).stream().map(x->ItemDTO.getDTO(x)).toList();
     }
+    @Override
+    public List<ItemDTO>getItemsOnPriceLess(Double price){
+        return itemRepository.findByPriceLessThanEqual(price).stream().map(x->ItemDTO.getDTO(x)).toList();
+    }
+    @Override
+    public List<ItemDTO>getItemsOnPriceGreater(Double price){
+        return itemRepository.findByPriceGreaterThanEqual(price).stream().map(x->ItemDTO.getDTO(x)).toList();
+    }
+    @Override
+    public List<ItemDTO>getItemsOnPriceBetween(Double low, Double high){
+        return itemRepository.findByPriceBetween(low, high).stream().map(x->ItemDTO.getDTO(x)).toList();
+    }
+    @Override
+    public List<ItemDTO>getItemsOnRatings(Double rating){
+        return itemRepository.findByRatingGreaterThanEqual(rating).stream().map(x->ItemDTO.getDTO(x)).toList();
+    }
 }

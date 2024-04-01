@@ -49,4 +49,20 @@ public class ItemAPI {
     public ResponseEntity<List<ItemDTO>> searchItems(@PathVariable String term) {
         return new ResponseEntity<>(itemService.searchItems(term), HttpStatus.OK);
     }
+    @GetMapping("/price/less/{price}")
+    public ResponseEntity<List<ItemDTO>> getItemsPriceLess(@PathVariable Double price) {
+        return new ResponseEntity<>(itemService.getItemsOnPriceLess(price), HttpStatus.OK);
+    }
+    @GetMapping("/price/greater/{price}")
+    public ResponseEntity<List<ItemDTO>> getItemsPriceGreater(@PathVariable Double price) {
+        return new ResponseEntity<>(itemService.getItemsOnPriceGreater(price), HttpStatus.OK);
+    }
+    @GetMapping("/price/between/{low}/{high}")
+    public ResponseEntity<List<ItemDTO>> getItemsPriceBetween(@PathVariable Double low, @PathVariable Double high) {
+        return new ResponseEntity<>(itemService.getItemsOnPriceBetween(low, high), HttpStatus.OK);
+    }
+    @GetMapping("/rating/{rating}")
+    public ResponseEntity<List<ItemDTO>> getItemsOnRating(@PathVariable Double rating) {
+        return new ResponseEntity<>(itemService.getItemsOnRatings(rating), HttpStatus.OK);
+    }
 }

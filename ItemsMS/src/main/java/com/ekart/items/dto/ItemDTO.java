@@ -8,9 +8,9 @@ public class ItemDTO {
     private String title;
     private String desc;
     private Double price;
+    private Double rating;
     private String image;
     private String category;
-    
     public Long getId() {
         return this.id;
     }
@@ -59,6 +59,13 @@ public class ItemDTO {
         this.category = category;
     }
     
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
     public static ItemDTO getDTO(Item item) {
         ItemDTO itemDTO= new ItemDTO();
         itemDTO.setTitle(item.getTitle());
@@ -67,6 +74,7 @@ public class ItemDTO {
         itemDTO.setPrice(item.getPrice());
         itemDTO.setImage(item.getImage());
         itemDTO.setCategory(item.getCategory());
+        itemDTO.setRating(item.getRating());
         return itemDTO;
     }
     public static Item getEntity(ItemDTO itemDTO) {
@@ -77,6 +85,7 @@ public class ItemDTO {
         item.setPrice(itemDTO.getPrice());
         item.setImage(itemDTO.getImage());
         item.setCategory(itemDTO.getCategory());
+        item.setRating(itemDTO.getRating());
         return item;
     }
     @Override
@@ -106,6 +115,7 @@ public class ItemDTO {
             ", category='" + getCategory() + "'" +
             "}";
     }
+
     
     
     

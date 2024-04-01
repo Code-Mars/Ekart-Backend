@@ -13,6 +13,7 @@ public class Item {
     private String desc;
     private Double price;
     private String image;
+    private Double rating;
     private String category;
     public Long getId() {
         return id;
@@ -49,6 +50,12 @@ public class Item {
     }
     public void setCategory(String category) {
         this.category = category;
+    }
+    public Double getRating() {
+        return rating;
+    }
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
     
 }

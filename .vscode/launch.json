@@ -19,6 +19,26 @@
             "projectName": "ItemsMS",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CartMsApplication<CartMS>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ekart.cart.CartMsApplication",
+            "projectName": "CartMS",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PaymentMsApplication<PaymentMS>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ekart.payment.PaymentMsApplication",
+            "projectName": "PaymentMS",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
