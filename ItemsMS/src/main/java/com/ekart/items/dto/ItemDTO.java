@@ -8,8 +8,7 @@ public class ItemDTO {
     private String title;
     private String desc;
     private Double price;
-    private Double rating;
-    private String image;
+    private Double rating; 
     private String category;
     public Long getId() {
         return this.id;
@@ -43,13 +42,6 @@ public class ItemDTO {
         this.price = price;
     }
     
-    public String getImage() {
-        return this.image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public String getCategory() {
         return this.category;
@@ -72,7 +64,6 @@ public class ItemDTO {
         itemDTO.setDesc(item.getDesc());
         itemDTO.setId(item.getId());
         itemDTO.setPrice(item.getPrice());
-        itemDTO.setImage(item.getImage());
         itemDTO.setCategory(item.getCategory());
         itemDTO.setRating(item.getRating());
         return itemDTO;
@@ -83,7 +74,6 @@ public class ItemDTO {
         item.setDesc(itemDTO.getDesc());
         item.setId(itemDTO.getId());
         item.setPrice(itemDTO.getPrice());
-        item.setImage(itemDTO.getImage());
         item.setCategory(itemDTO.getCategory());
         item.setRating(itemDTO.getRating());
         return item;
@@ -96,12 +86,12 @@ public class ItemDTO {
             return false;
         }
         ItemDTO itemDTO = (ItemDTO) o;
-        return Objects.equals(id, itemDTO.id) && Objects.equals(title, itemDTO.title) && Objects.equals(desc, itemDTO.desc) && Objects.equals(price, itemDTO.price) && Objects.equals(image, itemDTO.image) && Objects.equals(category, itemDTO.category);
+        return Objects.equals(id, itemDTO.id) && Objects.equals(title, itemDTO.title) && Objects.equals(desc, itemDTO.desc) && Objects.equals(price, itemDTO.price)  && Objects.equals(category, itemDTO.category);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, desc, price, image, category);
+        return Objects.hash(id, title, desc, price, category);
     }
     
     @Override
@@ -111,7 +101,6 @@ public class ItemDTO {
             ", title='" + getTitle() + "'" +
             ", desc='" + getDesc() + "'" +
             ", price='" + getPrice() + "'" +
-            ", image='" + getImage() + "'" +
             ", category='" + getCategory() + "'" +
             "}";
     }

@@ -1,6 +1,8 @@
 package com.ekart.user.dto;
 
 
+import java.util.List;
+
 import com.ekart.user.entity.User;
 
 public class UserDTO {
@@ -9,7 +11,7 @@ public class UserDTO {
     private String email;
     private String mobile;
     private String password;
-    
+    private List<Long> wishlist;
     public Long getId() {
         return id;
     }
@@ -40,6 +42,12 @@ public class UserDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+    public List<Long> getWishlist() {
+        return wishlist;
+    }
+    public void setWishlist(List<Long> wishlist) {
+        this.wishlist = wishlist;
+    }
     public static UserDTO entityToDTO(User user) {
         UserDTO userDTO= new UserDTO();
         userDTO.setName(user.getName());
@@ -47,7 +55,7 @@ public class UserDTO {
         userDTO.setId(user.getId());
         userDTO.setMobile(user.getMobile());
         userDTO.setPassword(user.getPassword());
-
+        userDTO.setWishlist(user.getWishlist());
         return userDTO;
     }
     public static User getEntity(UserDTO userDTO) {
@@ -57,6 +65,7 @@ public class UserDTO {
         user.setId(userDTO.getId());
         user.setMobile(userDTO.getMobile());
         user.setPassword(userDTO.getPassword());
+        user.setWishlist(userDTO.getWishlist());
         return user;
     }
     @Override
@@ -106,6 +115,7 @@ public class UserDTO {
             return false;
         return true;
     }
+    
     
     
 }

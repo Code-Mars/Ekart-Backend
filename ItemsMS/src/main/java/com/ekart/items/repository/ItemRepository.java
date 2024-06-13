@@ -7,6 +7,7 @@ import com.ekart.items.entity.Item;
 
 public interface ItemRepository extends MongoRepository<Item, Long>{
     List<Item>findByAllIgnoreCaseTitleContainingOrDescContainingOrCategoryContaining(String title, String desc, String category);
+    List<Item>findByCategory(String category);
     List<Item>findByPriceLessThanEqual(Double price);
     List<Item>findByPriceGreaterThanEqual(Double price);
     List<Item>findByPriceBetween(Double low , Double high);

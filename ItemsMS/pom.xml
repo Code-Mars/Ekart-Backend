@@ -9,14 +9,20 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ekart.items</groupId>
-	<artifactId>ItemsMS</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>EkartItems</artifactId>
+	<version>1</version>
 	<name>ItemsMS</name>
 	<description>This MS for the managing the Items</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -63,6 +69,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>EkartItems</finalName>
 	</build>
 
 </project>

@@ -52,6 +52,7 @@ public class ItemServiceImpl implements ItemService{
     public List<ItemDTO> getAllItems(){
         return itemRepository.findAll().stream().map(x->ItemDTO.getDTO(x)).toList();
     }
+    
     @Override
     public List<ItemDTO>searchItems(String term){
         return itemRepository.findByAllIgnoreCaseTitleContainingOrDescContainingOrCategoryContaining(term, term, term).stream().map(x->ItemDTO.getDTO(x)).toList();
@@ -71,5 +72,9 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public List<ItemDTO>getItemsOnRatings(Double rating){
         return itemRepository.findByRatingGreaterThanEqual(rating).stream().map(x->ItemDTO.getDTO(x)).toList();
+    }
+    @Override
+    public List<ItemDTO> getCategoryWiseItems(String term) {
+        return itemRepository.findByCategory(term).stream().map(x->ItemDTO.getDTO(x)).toList();
     }
 }

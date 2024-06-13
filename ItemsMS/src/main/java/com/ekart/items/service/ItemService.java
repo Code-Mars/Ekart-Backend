@@ -15,4 +15,5 @@ public interface ItemService {
     public List<ItemDTO>getItemsOnPriceGreater(Double price);
     public List<ItemDTO>getItemsOnPriceBetween(Double low, Double high);
     public List<ItemDTO>getItemsOnRatings(Double rating);
+    public List<ItemDTO>getCategoryWiseItems(String term);
 }

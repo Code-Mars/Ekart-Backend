@@ -29,14 +29,25 @@ public class ItemAPI {
     @Autowired
     private ItemService itemService;
     
+    @PostMapping(value = "/registerAll")
+    public ResponseEntity<List<ItemDTO>> registerItem(@RequestBody @Valid List<ItemDTO> itemDTOs) throws EkartException {
+        itemDTOs.stream().forEach((x)->{
+           try {
+            x.setId(itemService.registerItem(x));
+        } catch (EkartException e) {
+            e.printStackTrace();
+        }
+        });
+        return new ResponseEntity<>(itemDTOs, HttpStatus.CREATED);       
+    }
     @PostMapping(value = "/register")
     public ResponseEntity<ItemDTO> registerItem(@RequestBody @Valid ItemDTO itemDTO) throws EkartException {
         Long id=itemService.registerItem(itemDTO);
         itemDTO.setId(id);
         return new ResponseEntity<>(itemDTO, HttpStatus.CREATED);       
     }
-    @PostMapping(value = "/get")
-    public ResponseEntity<ItemDTO> getItem(@NotNull(message = "{itemid.absent}") @RequestBody Long id) throws EkartException {
+    @GetMapping(value = "/get/{id}")
+    public ResponseEntity<ItemDTO> getItem(@NotNull(message = "{itemid.absent}") @PathVariable Long id) throws EkartException {
         ItemDTO itemDTO = itemService.getItem(id);
         return new ResponseEntity<>(itemDTO, HttpStatus.OK);
     }
@@ -44,7 +55,10 @@ public class ItemAPI {
     public ResponseEntity<List<ItemDTO>> getItemId() throws EkartException {
         return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK);
     }
-    
+    @GetMapping(value="/category/{term}")
+    public ResponseEntity<List<ItemDTO>> getCategoryWiseItems(@PathVariable String term) {
+        return new ResponseEntity<>(itemService.searchItems(term), HttpStatus.OK);
+    }
     @GetMapping("/search/{term}")
     public ResponseEntity<List<ItemDTO>> searchItems(@PathVariable String term) {
         return new ResponseEntity<>(itemService.searchItems(term), HttpStatus.OK);

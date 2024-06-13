@@ -1,5 +1,7 @@
 package com.ekart.cart.entity;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +15,7 @@ public class Cart {
     private Long itemId;
     private Integer quantity;
     private Status status;
+    private LocalDate date;
     public Long getId() {
         return id;
     }
@@ -42,6 +45,12 @@ public class Cart {
     }
     public void setStatus(Status status) {
         this.status = status;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
     
 }

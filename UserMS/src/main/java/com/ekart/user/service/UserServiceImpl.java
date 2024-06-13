@@ -1,5 +1,7 @@
 package com.ekart.user.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -45,17 +47,20 @@ public class UserServiceImpl implements UserService{
         if(userRepository.findByMobile(userDTO.getMobile()).isPresent())throw new EkartException("Service.USER_FOUND");
         if(userRepository.findByEmail(userDTO.getEmail()).isPresent())throw new EkartException("Service.USER_FOUND");
         userDTO.setId(getNextSequenceId(HOSTING_SEQ_KEY));
+        userDTO.setWishlist(new ArrayList<>());
         User user=UserDTO.getEntity(userDTO);
         return userRepository.save(user).getId();
         
     }
     @Override
-    public Long loginUser(LoginDTO loginDTO) throws EkartException{
+    public UserDTO loginUser(LoginDTO loginDTO) throws EkartException{
         User user=null;
         if(loginDTO.getEmail()!=null)user=userRepository.findByEmail(loginDTO.getEmail()).orElseThrow(()->new EkartException(USER_NOT_FOUND));
         else user=userRepository.findByMobile(loginDTO.getMobile()).orElseThrow(()->new EkartException(USER_NOT_FOUND));
         if(!loginDTO.getPassword().equals(user.getPassword()))throw new EkartException("Service.INVALID_CREDENTIALS");
-        return user.getId();
+        UserDTO userDTO=UserDTO.entityToDTO(user);
+        userDTO.setPassword(null);
+        return userDTO;
     }
     @Override
     public void resetPassword(LoginDTO dto) throws EkartException {

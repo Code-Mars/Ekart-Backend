@@ -12,7 +12,6 @@ public class Item {
     private String title;
     private String desc;
     private Double price;
-    private String image;
     private Double rating;
     private String category;
     public Long getId() {
@@ -38,12 +37,6 @@ public class Item {
     }
     public void setPrice(Double price) {
         this.price = price;
-    }
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
     }
     public String getCategory() {
         return category;

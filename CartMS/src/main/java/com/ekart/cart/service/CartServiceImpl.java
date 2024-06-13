@@ -1,5 +1,6 @@
 package com.ekart.cart.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +54,8 @@ public class CartServiceImpl implements CartService {
             return 0;
         }
         item.setId(this.getNextSequenceId(HOSTING_SEQ_KEY));
-        item.setStatus(Status.ADDED);
+        item.setStatus(Status.ORDERED);
+        item.setDate(LocalDate.now());
         cartRepository.save(CartDTO.toEntity(item));
         return 1;
     }
